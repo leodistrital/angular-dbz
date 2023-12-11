@@ -1,0 +1,25 @@
+<!-- <p>app-heroes-list works!</p> -->
+<h3>Lista de Heroes</h3>
+
+<div *ngIf="deleteHero else nohaBorradoNada">
+	<h3>Heroe borrado fue : {{ deleteHero }}</h3>
+</div>
+<ng-template #nohaBorradoNada>
+	<h3>No ha borrado nada</h3>
+</ng-template>
+
+<button
+	*ngIf="heroeNames.length>0"
+	(click)="removeLastHero()"
+	class="btn btn-danger"
+>
+	Borrar el ultimo Heroe
+</button>
+
+<ul class="mt-2 list-group">
+	<li *ngFor="let item of heroeNames" class="list-gruoup-itemm">
+		{{ item }}
+	</li>
+</ul>
+
+<button *ngIf="true" class="btn btn-primary">Agregar Heroe</button>
